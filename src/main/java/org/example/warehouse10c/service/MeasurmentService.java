@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MeasurmentService {
@@ -26,6 +27,28 @@ public class MeasurmentService {
         measurementRepository.save(measurement);
         return new Result(true, "Measurement created");
     }
+
+
+    public  Result updateMeasurement(Integer id , MeasurmentDto measurmentDto) {
+        Optional<Measurement> measurementOptional = measurementRepository.findById(id);
+        if (measurementOptional.isPresent()) {
+            Measurement measurement = measurementOptional.get();
+            measurement.setName(measurmentDto.getName());
+            measurement.setActive(measurmentDto.isActive());
+            measurementRepository.save(measurement);
+            return new Result(true, "Updated");
+        }
+        return new Result(false, "Not found");
+    }
+
+    public Result delete(Integer id){
+        measurementRepository.deleteById(id);
+        return new Result(true,"deleted");
+    }
+
+
+
+
 
 
 
