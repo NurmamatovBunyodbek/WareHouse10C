@@ -20,5 +20,4 @@ public class Supplier {
     @Column(nullable = false)
     private String phoneNumber;
 
-
 }

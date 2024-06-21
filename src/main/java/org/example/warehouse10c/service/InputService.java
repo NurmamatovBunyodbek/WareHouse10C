@@ -4,7 +4,7 @@ import org.example.warehouse10c.dto.InputDto;
 import org.example.warehouse10c.model.*;
 import org.example.warehouse10c.repository.CurrencyRepository;
 import org.example.warehouse10c.repository.InputRepository;
-import org.example.warehouse10c.repository.SuppliesRepository;
+import org.example.warehouse10c.repository.SupplierRepository;
 import org.example.warehouse10c.repository.WareHouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public class InputService {
 
 
     @Autowired
-    SuppliesRepository suppliesRepository;
+    SupplierRepository suppliesRepository;
 
 
     public List<Input> getAllInput() {
